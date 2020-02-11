@@ -1,3 +1,9 @@
 <resources>
-    <string name="app_name">GitSeek</string>
+    <string name="app_name" translatable="false">GitSeek</string>
+    <string name="search_hint">Search…</string>
+    <string name="sort_title">Sort by</string>
+    <string name="sort_by_best_match">Best match</string>
+    <string name="sort_by_stars">Stars</string>
+    <string name="sort_by_forks">Forks</string>
+    <string name="sort_by_updated">Updated</string>
 </resources>

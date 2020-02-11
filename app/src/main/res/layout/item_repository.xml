@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="?android:attr/listPreferredItemHeight"
+        android:orientation="vertical">
+
+    <ImageView
+            android:id="@+id/avatar"
+            android:layout_width="@dimen/avatar_width"
+            android:layout_height="@dimen/avatar_height"
+            android:layout_margin="@dimen/standard_margin"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="ContentDescription"
+            tools:src="@tools:sample/avatars" />
+
+    <TextView
+            android:id="@+id/repositoryName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/horizontal_margin_standard"
+            android:layout_marginEnd="@dimen/horizontal_margin_standard"
+            android:textColor="@android:color/black"
+            android:textSize="16sp"
+            app:layout_constraintStart_toEndOf="@id/avatar"
+            app:layout_constraintTop_toTopOf="@id/avatar"
+            tools:text="GitSeek" />
+
+    <TextView
+            android:id="@+id/userName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/horizontal_margin_standard"
+            android:layout_marginEnd="@dimen/horizontal_margin_standard"
+            android:textSize="14sp"
+            app:layout_constraintStart_toEndOf="@id/avatar"
+            app:layout_constraintTop_toBottomOf="@id/repositoryName"
+            tools:text="@tools:sample/full_names" />
+
+    <ImageView
+            android:id="@+id/watchersIcon"
+            android:layout_width="@dimen/icon_width"
+            android:layout_height="@dimen/icon_height"
+            android:layout_margin="@dimen/standard_margin_small"
+            android:src="@drawable/ic_watchers"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/watchersCount"
+            app:layout_constraintTop_toBottomOf="@id/userName"
+            tools:ignore="ContentDescription" />
+
+    <TextView
+            android:id="@+id/watchersCount"
+            android:layout_width="@dimen/icon_width"
+            android:layout_height="@dimen/icon_height"
+            android:layout_marginEnd="@dimen/horizontal_margin_standard"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/forkCountIcon"
+            app:layout_constraintTop_toBottomOf="@id/userName"
+            tools:text="20" />
+
+    <ImageView
+            android:id="@+id/forkCountIcon"
+            android:layout_width="@dimen/icon_width"
+            android:layout_height="@dimen/icon_height"
+            android:layout_margin="@dimen/standard_margin_small"
+            android:src="@drawable/ic_fork"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/forkCount"
+            app:layout_constraintTop_toBottomOf="@id/userName"
+            tools:ignore="ContentDescription" />
+
+    <TextView
+            android:id="@+id/forkCount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/horizontal_margin_standard"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/issueCountIcon"
+            app:layout_constraintTop_toBottomOf="@id/userName"
+            tools:text="10" />
+
+    <ImageView
+            android:id="@+id/issueCountIcon"
+            android:layout_width="@dimen/icon_width"
+            android:layout_height="@dimen/icon_height"
+            android:layout_margin="@dimen/standard_margin_small"
+            android:src="@drawable/ic_issues"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/issueCount"
+            app:layout_constraintTop_toBottomOf="@id/userName"
+            tools:ignore="ContentDescription" />
+
+    <TextView
+            android:id="@+id/issueCount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/horizontal_margin_standard"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/userName"
+            tools:text="15" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
