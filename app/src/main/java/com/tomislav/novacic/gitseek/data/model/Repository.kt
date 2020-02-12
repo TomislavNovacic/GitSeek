@@ -1,7 +1,10 @@
 package com.tomislav.novacic.gitseek.data.model
 
+import android.os.Parcelable
 import com.squareup.moshi.Json
+import kotlinx.android.parcel.Parcelize
 
+@Parcelize
 data class Repository(
     @Json(name = "id")
     val id: Int,
@@ -49,4 +52,4 @@ data class Repository(
     val defaultBranch: String,
     @Json(name = "score")
     val score: Double
-)
+) : Parcelable

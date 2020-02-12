@@ -3,7 +3,7 @@ package com.tomislav.novacic.gitseek.di.module
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.tomislav.novacic.gitseek.di.ViewModelFactory
-import com.tomislav.novacic.gitseek.ui.repository.details.RepositoyDetailsViewModel
+import com.tomislav.novacic.gitseek.ui.repository.details.RepositoryDetailsViewModel
 import com.tomislav.novacic.gitseek.ui.search.SearchViewModel
 import com.tomislav.novacic.gitseek.ui.user.details.UserDetailsViewModel
 import dagger.Binds
@@ -24,8 +24,8 @@ internal abstract class ViewModelModule {
 
     @Binds
     @IntoMap
-    @ViewModelKey(RepositoyDetailsViewModel::class)
-    protected abstract fun repositoryDetailsViewModel(searchViewModel: RepositoyDetailsViewModel): ViewModel
+    @ViewModelKey(RepositoryDetailsViewModel::class)
+    protected abstract fun repositoryDetailsViewModel(searchViewModel: RepositoryDetailsViewModel): ViewModel
 
     @Binds
     @IntoMap

@@ -1,7 +1,10 @@
 package com.tomislav.novacic.gitseek.data.model
 
+import android.os.Parcelable
 import com.squareup.moshi.Json
+import kotlinx.android.parcel.Parcelize
 
+@Parcelize
 data class User(
     @Json(name = "login")
     val login: String,
@@ -31,4 +34,4 @@ data class User(
     val type: String,
     @Json(name = "score")
     val score: Double
-)
+) : Parcelable

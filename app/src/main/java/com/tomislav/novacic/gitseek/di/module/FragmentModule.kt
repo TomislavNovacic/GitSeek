@@ -1,6 +1,6 @@
 package com.tomislav.novacic.gitseek.di.module
 
-import com.tomislav.novacic.gitseek.ui.repository.details.RepositoyDetailsFragment
+import com.tomislav.novacic.gitseek.ui.repository.details.RepositoryDetailsFragment
 import com.tomislav.novacic.gitseek.ui.search.SearchFragment
 import com.tomislav.novacic.gitseek.ui.user.details.UserDetailsFragment
 import dagger.Module
@@ -13,7 +13,7 @@ abstract class FragmentModule {
     abstract fun contributeSearchFragment(): SearchFragment
 
     @ContributesAndroidInjector
-    abstract fun contributeRepositoryDetailsFragment(): RepositoyDetailsFragment
+    abstract fun contributeRepositoryDetailsFragment(): RepositoryDetailsFragment
 
     @ContributesAndroidInjector
     abstract fun contributeUserDetailsFragment(): UserDetailsFragment

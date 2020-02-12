@@ -15,6 +15,7 @@ import com.tomislav.novacic.gitseek.data.OnClick
 import com.tomislav.novacic.gitseek.data.RepositoriesAdapter
 import com.tomislav.novacic.gitseek.data.model.Repository
 import com.tomislav.novacic.gitseek.data.model.User
+import com.tomislav.novacic.gitseek.ui.repository.details.RepositoryDetailsFragment
 import dagger.android.support.AndroidSupportInjection
 import kotlinx.android.synthetic.main.fragment_search.*
 import javax.inject.Inject
@@ -25,6 +26,8 @@ class SearchFragment : Fragment(), OnClick {
     @Inject lateinit var viewModelFactory: ViewModelProvider.Factory
     private lateinit var viewModel: SearchViewModel
     private lateinit var repositoriesAdapter: RepositoriesAdapter
+
+    private val REPOSITORY_DETAILS_FRAGMENT_TAG = "REPOSITORY_DETAILS_FRAGMENT_TAG"
 
     companion object {
         fun newInstance() = SearchFragment()
@@ -100,7 +103,10 @@ class SearchFragment : Fragment(), OnClick {
     }
 
     override fun onRepositoryClick(repository: Repository) {
-        //TODO Open repository details screen
+        val transaction = parentFragmentManager.beginTransaction()
+        transaction.replace(R.id.container, RepositoryDetailsFragment.newInstance(repository), REPOSITORY_DETAILS_FRAGMENT_TAG)
+        transaction.addToBackStack(null)
+        transaction.commit()
     }
 
     override fun onThumbnailClick(user: User) {
