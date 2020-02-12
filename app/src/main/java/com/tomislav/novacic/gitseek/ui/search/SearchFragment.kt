@@ -16,6 +16,7 @@ import com.tomislav.novacic.gitseek.data.RepositoriesAdapter
 import com.tomislav.novacic.gitseek.data.model.Repository
 import com.tomislav.novacic.gitseek.data.model.User
 import com.tomislav.novacic.gitseek.ui.repository.details.RepositoryDetailsFragment
+import com.tomislav.novacic.gitseek.ui.user.details.UserDetailsFragment
 import dagger.android.support.AndroidSupportInjection
 import kotlinx.android.synthetic.main.fragment_search.*
 import javax.inject.Inject
@@ -28,6 +29,7 @@ class SearchFragment : Fragment(), OnClick {
     private lateinit var repositoriesAdapter: RepositoriesAdapter
 
     private val REPOSITORY_DETAILS_FRAGMENT_TAG = "REPOSITORY_DETAILS_FRAGMENT_TAG"
+    private val USER_DETAILS_FRAGMENT_TAG = "USER_DETAILS_FRAGMENT_TAG"
 
     companion object {
         fun newInstance() = SearchFragment()
@@ -110,6 +112,9 @@ class SearchFragment : Fragment(), OnClick {
     }
 
     override fun onThumbnailClick(user: User) {
-        //TODO Open user details screen
+        val transaction = parentFragmentManager.beginTransaction()
+        transaction.replace(R.id.container, UserDetailsFragment.newInstance(user), USER_DETAILS_FRAGMENT_TAG)
+        transaction.addToBackStack(null)
+        transaction.commit()
     }
 }
