@@ -15,6 +15,9 @@ import javax.inject.Inject
 
 class RepositoryDetailsFragment : Fragment() {
 
+    //TODO Add recyclerView to show repository details
+    //TODO Add implicit intent to open browser
+
     @Inject lateinit var viewModelFactory: ViewModelProvider.Factory
     private lateinit var viewModel: RepositoryDetailsViewModel
 

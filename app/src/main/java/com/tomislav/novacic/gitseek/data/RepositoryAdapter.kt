@@ -29,10 +29,12 @@ class RepositoriesAdapter(var data: ArrayList<Repository>, private val onClick: 
         return RepositoryViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.item_repository, parent, false))
     }
 
+    //TODO Fix Glide image loading and user data population
     override fun onBindViewHolder(viewHolder: RepositoryViewHolder, position: Int) {
         Glide.with(viewHolder.itemView.context)
             .load(data[position].owner.avatarUrl)
             .apply(RequestOptions.circleCropTransform())
+            .placeholder(R.drawable.ic_avatar_placeholder)
             .into(viewHolder.mThumbnail)
         viewHolder.mRepositoryName.text = data[position].name
         viewHolder.mUserName.text = data[position].owner.login
@@ -47,9 +49,9 @@ class RepositoriesAdapter(var data: ArrayList<Repository>, private val onClick: 
         return data.size
     }
 
-    class OnItemClick(repository: Repository, onClick: OnClick) : View.OnClickListener {
-        var mRepository = repository
-        var mOnItemClick: OnClick = onClick
+    private class OnItemClick(repository: Repository, onClick: OnClick) : View.OnClickListener {
+        private var mRepository = repository
+        private var mOnItemClick: OnClick = onClick
 
         override fun onClick(view: View) {
             mOnItemClick.onRepositoryClick(mRepository)

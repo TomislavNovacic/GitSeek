@@ -27,6 +27,7 @@ class SearchFragment : Fragment(), OnClick {
     @Inject lateinit var viewModelFactory: ViewModelProvider.Factory
     private lateinit var viewModel: SearchViewModel
     private lateinit var repositoriesAdapter: RepositoriesAdapter
+    private val repositoryList by lazy { arrayListOf<Repository>() }
 
     private val REPOSITORY_DETAILS_FRAGMENT_TAG = "REPOSITORY_DETAILS_FRAGMENT_TAG"
     private val USER_DETAILS_FRAGMENT_TAG = "USER_DETAILS_FRAGMENT_TAG"
@@ -50,7 +51,8 @@ class SearchFragment : Fragment(), OnClick {
         super.onActivityCreated(savedInstanceState)
         viewModel.response.observe(viewLifecycleOwner, Observer {
             if (it?.repositoryDetailsList != null) {
-                repositoriesAdapter.data = ArrayList(it.repositoryDetailsList)
+                repositoryList.clear()
+                repositoryList.addAll(it.repositoryDetailsList)
                 repositoriesAdapter.notifyDataSetChanged()
             }
         })
@@ -68,7 +70,7 @@ class SearchFragment : Fragment(), OnClick {
             }
             false
         }
-        repositoriesAdapter = RepositoriesAdapter(ArrayList(), this)
+        repositoriesAdapter = RepositoriesAdapter(repositoryList, this)
         recyclerView.addItemDecoration(DividerItemDecoration(requireContext(), LinearLayout.VERTICAL))
         recyclerView.adapter = repositoriesAdapter
     }

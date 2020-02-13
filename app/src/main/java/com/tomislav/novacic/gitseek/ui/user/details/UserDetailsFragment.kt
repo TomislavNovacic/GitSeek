@@ -15,6 +15,9 @@ import javax.inject.Inject
 
 class UserDetailsFragment : Fragment() {
 
+    //TODO Add recyclerView to show user details
+    //TODO Add implicit intent to open browser
+
     @Inject lateinit var viewModelFactory: ViewModelProvider.Factory
     private lateinit var viewModel: UserDetailsViewModel
 
